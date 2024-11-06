@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Arrow Function</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body id="body">
+        <h1>My Boring website</h1>
+        <p id="paragraph">
+            this website is boring, with very little
+            However, we really just care about hte javascript.
+            for ecample, if you click <button id="button">this button </button>
+            , the background of this paragraph tag will change to blue
+        </p>
+        <p> We also have a <button id="alert">alert</button> button that will 
+        grab the text from the input below and show it in a poup.
+        </p>
+        <div>
+            <input type="text" id="popup-input">
+        </div>
+        <p>
+            we jsut like random interactivity in the site, including a fun effect
+            if you hover over <span id="hover-this"><b>this.</b></span>
+        </p>
+        <p onmouseover="mouseOverFunction(this)">
+            Another task: this should be another feature.
+            i want to click anywhere in this paragraph tag and I want to be able to change the 
+            background color to whatever is in the input :<input type="text"/>.
+        </p>
+
+        <script async>
+        
+            document.getElementById('button').onclick = function(){
+                console.log("hello");
+                setBackgroundColorById('paragraph',"blue")
+            }
+
+            function setBackgroundColorById(id,color){
+                document.getElementById(id).style = "background-color:"+color;
+            }
+            // first solution
+            document.getElementById('button').onclick = ()=>{
+                setBackgroundColorById('paragraph','green');
+            }
+            // second solution
+            document.getElementById('button').onclick = ()=>{
+                document.getElementById("paragraph").style = "background-color: red";
+            }
+
+            document.getElementById("alert").onclick = function(){
+                alert(document.getElementById("popup-input").value);
+            }
+
+            document.getElementById("alert").onclick = ()=>{
+                alert(document.getElementById('popup-input').value)
+            }
+
+            // document.getElementById('hover-this').onmouseover = function(){
+            //     setBackgroundColorById("body","gray")
+            // }
+
+            document.getElementById('hover-this').onmouseover = ()=>{
+                setBackgroundColorById('body',"#A020F0")
+            }
+
+            // document.getElementById('hover-this').onmouseover = function(){
+            //     setBackgroundColorById("body","orange")
+            // }
+
+            function mouseOverFunction(el){
+                el.style = 'background-color: yellow';
+            }
+
+        </script>
+    </body>
+</html>
